@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nansen-black: #0a0a0a;
+  --color-nansen-dark: #111111;
+  --color-nansen-green: #00d395;
+  --color-nansen-green-dark: #00a876;
+  --color-nansen-green-light: #00ffb3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 211, 149, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 211, 149, 0.6); }
+}
+
+@keyframes markerBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glowPulse 2s infinite;
+}
+
+.animate-marker {
+  animation: markerBounce 1s ease-in-out infinite;
+}
+
+/* Loading dots animation */
+@keyframes loadingDots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+.loading-dots::after {
+  content: '';
+  animation: loadingDots 1.5s infinite;
+}
+
+/* Bell curve gradient */
+.bell-curve-gradient {
+  background: linear-gradient(90deg,
+    #00d395 0%,
+    #00d395 15%,
+    #fbbf24 35%,
+    #ef4444 50%,
+    #fbbf24 65%,
+    #00d395 85%,
+    #00d395 100%
+  );
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d395;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffb3;
+}
