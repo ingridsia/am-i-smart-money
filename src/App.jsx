@@ -437,7 +437,7 @@ function App() {
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Am I <span className="text-[#00d395]">Smart Money</span>?
+            Am I <span className="text-[#00d395]">Smart Money</span>? 🤓
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             {state === 'input' && "Paste your wallet address and find out if you're the alpha or the exit liquidity."}
