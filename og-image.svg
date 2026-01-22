@@ -1,129 +1,137 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00d395"/>
-      <stop offset="35%" stop-color="#00d395"/>
-      <stop offset="50%" stop-color="#ef4444"/>
-      <stop offset="65%" stop-color="#00d395"/>
-      <stop offset="100%" stop-color="#00d395"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0a0a"/>
-
-  <!-- Subtle Nansen green accent line at top -->
-  <rect x="0" y="0" width="1200" height="4" fill="#00d395"/>
+  <!-- Background - clean dark -->
+  <rect width="1200" height="630" fill="#0d0d0d"/>
 
   <!-- Title -->
-  <text x="600" y="70" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="bold" fill="white">Am I Smart Money?</text>
-  <text x="600" y="105" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#00d395">Find out if you're the alpha or the exit liquidity</text>
+  <text x="600" y="55" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="48" fill="white" letter-spacing="2">AM I SMART MONEY?</text>
 
-  <!-- Bell Curve -->
-  <path d="M 50 520
-           C 100 520, 150 518, 200 510
-           C 300 490, 400 420, 500 300
-           C 550 230, 580 180, 600 160
-           C 620 180, 650 230, 700 300
-           C 800 420, 900 490, 1000 510
-           C 1050 518, 1100 520, 1150 520"
-        stroke="url(#curveGradient)" stroke-width="6" fill="none"/>
+  <!-- Bell Curve - thick black outline style like the meme -->
+  <path d="M 80 480
+           Q 150 480, 200 475
+           Q 300 460, 380 400
+           Q 480 300, 550 200
+           Q 590 140, 600 120
+           Q 610 140, 650 200
+           Q 720 300, 820 400
+           Q 900 460, 1000 475
+           Q 1050 480, 1120 480"
+        stroke="#00d395" stroke-width="5" fill="none"/>
 
-  <!-- Curve fill -->
-  <path d="M 50 520
-           C 100 520, 150 518, 200 510
-           C 300 490, 400 420, 500 300
-           C 550 230, 580 180, 600 160
-           C 620 180, 650 230, 700 300
-           C 800 420, 900 490, 1000 510
-           C 1050 518, 1100 520, 1150 520
-           L 1150 521 L 50 521 Z"
-        fill="url(#curveGradient)" opacity="0.1"/>
+  <!-- Curve area fill -->
+  <path d="M 80 480
+           Q 150 480, 200 475
+           Q 300 460, 380 400
+           Q 480 300, 550 200
+           Q 590 140, 600 120
+           Q 610 140, 650 200
+           Q 720 300, 820 400
+           Q 900 460, 1000 475
+           Q 1050 480, 1120 480
+           L 1120 482 L 80 482 Z"
+        fill="#00d395" opacity="0.15"/>
 
-  <!-- LEFT WOJAK - Smug/Confident (Smart Money) -->
-  <g transform="translate(120, 340)">
-    <!-- Head -->
-    <ellipse cx="0" cy="0" rx="55" ry="60" fill="#f5deb3"/>
-    <!-- Smug eyes - half closed -->
-    <ellipse cx="-18" cy="-8" rx="12" ry="6" fill="#0a0a0a"/>
-    <ellipse cx="18" cy="-8" rx="12" ry="6" fill="#0a0a0a"/>
-    <!-- Eyebrows - raised smugly -->
-    <path d="M -32 -22 Q -18 -30 -4 -22" stroke="#0a0a0a" stroke-width="3" fill="none"/>
-    <path d="M 4 -22 Q 18 -30 32 -22" stroke="#0a0a0a" stroke-width="3" fill="none"/>
+  <!-- LEFT - SMUG WOJAK (Smart Money) -->
+  <g transform="translate(160, 360)">
+    <!-- Head shape - classic wojak proportions -->
+    <ellipse cx="0" cy="0" rx="52" ry="58" fill="#f0e0c0" stroke="#000" stroke-width="2.5"/>
+    <!-- Hair line -->
+    <path d="M -40 -35 Q -30 -50, 0 -55 Q 30 -50, 40 -35" stroke="#000" stroke-width="2" fill="none"/>
+    <!-- Smug half-closed eyes -->
+    <line x1="-25" y1="-8" x2="-8" y2="-8" stroke="#000" stroke-width="3"/>
+    <line x1="8" y1="-8" x2="25" y2="-8" stroke="#000" stroke-width="3"/>
+    <!-- Raised eyebrows -->
+    <path d="M -28 -18 L -8 -22" stroke="#000" stroke-width="2.5" fill="none"/>
+    <path d="M 8 -22 L 28 -18" stroke="#000" stroke-width="2.5" fill="none"/>
     <!-- Smug smile -->
-    <path d="M -20 18 Q 0 35 20 18" stroke="#0a0a0a" stroke-width="3" fill="none"/>
-    <!-- Slight blush -->
-    <ellipse cx="-30" cy="8" rx="10" ry="6" fill="#ffb6c1" opacity="0.4"/>
-    <ellipse cx="30" cy="8" rx="10" ry="6" fill="#ffb6c1" opacity="0.4"/>
+    <path d="M -18 20 Q 0 32, 18 20" stroke="#000" stroke-width="2.5" fill="none"/>
+    <!-- Nose -->
+    <path d="M 0 0 L 3 10 L -2 10" stroke="#000" stroke-width="1.5" fill="none"/>
   </g>
-  <text x="120" y="440" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#00d395">SMART MONEY</text>
-  <text x="120" y="465" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#888">"I am the alpha"</text>
+  <!-- Label -->
+  <text x="160" y="455" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="16" font-weight="bold" fill="#00d395">SMART MONEY</text>
+  <text x="160" y="478" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666" font-style="italic">"i am the alpha"</text>
 
-  <!-- MIDDLE WOJAK - Crying/Distressed (Exit Liquidity) -->
-  <g transform="translate(600, 240)">
+  <!-- MIDDLE - CRYING WOJAK (Exit Liquidity / Midwit) -->
+  <g transform="translate(600, 220)">
     <!-- Head -->
-    <ellipse cx="0" cy="0" rx="50" ry="55" fill="#f5deb3"/>
-    <!-- Worried eyes - wide open -->
-    <ellipse cx="-15" cy="-5" rx="10" ry="12" fill="white"/>
-    <ellipse cx="15" cy="-5" rx="10" ry="12" fill="white"/>
-    <ellipse cx="-15" cy="-3" rx="5" ry="6" fill="#0a0a0a"/>
-    <ellipse cx="15" cy="-3" rx="5" ry="6" fill="#0a0a0a"/>
+    <ellipse cx="0" cy="0" rx="48" ry="54" fill="#f0e0c0" stroke="#000" stroke-width="2.5"/>
+    <!-- Messy stressed hair -->
+    <path d="M -38 -32 Q -25 -52, -10 -48 Q 0 -55, 10 -48 Q 25 -52, 38 -32" stroke="#000" stroke-width="2" fill="none"/>
+    <!-- Big worried eyes with highlights -->
+    <ellipse cx="-16" cy="-6" rx="11" ry="13" fill="white" stroke="#000" stroke-width="2"/>
+    <ellipse cx="16" cy="-6" rx="11" ry="13" fill="white" stroke="#000" stroke-width="2"/>
+    <!-- Pupils looking up/worried -->
+    <circle cx="-16" cy="-9" r="5" fill="#000"/>
+    <circle cx="16" cy="-9" r="5" fill="#000"/>
     <!-- Worried eyebrows -->
-    <path d="M -28 -22 Q -15 -28 -4 -18" stroke="#0a0a0a" stroke-width="2.5" fill="none"/>
-    <path d="M 4 -18 Q 15 -28 28 -22" stroke="#0a0a0a" stroke-width="2.5" fill="none"/>
-    <!-- Frown / worried mouth -->
-    <path d="M -15 20 Q 0 12 15 20" stroke="#0a0a0a" stroke-width="3" fill="none"/>
-    <!-- Tears -->
-    <path d="M -22 5 Q -28 20 -24 35" stroke="#5dadec" stroke-width="4" fill="none" opacity="0.8"/>
-    <path d="M 22 5 Q 28 20 24 35" stroke="#5dadec" stroke-width="4" fill="none" opacity="0.8"/>
-    <!-- Sweat drop -->
-    <ellipse cx="35" cy="-15" rx="6" ry="8" fill="#5dadec" opacity="0.6"/>
+    <path d="M -30 -24 Q -16 -30, -5 -20" stroke="#000" stroke-width="2.5" fill="none"/>
+    <path d="M 5 -20 Q 16 -30, 30 -24" stroke="#000" stroke-width="2.5" fill="none"/>
+    <!-- Open frown mouth -->
+    <ellipse cx="0" cy="24" rx="12" ry="8" fill="#000"/>
+    <!-- Nose -->
+    <path d="M 0 2 L 2 10 L -2 10" stroke="#000" stroke-width="1.5" fill="none"/>
+    <!-- TEARS - streaming down -->
+    <path d="M -24 2 Q -30 25, -26 50" stroke="#5ba4d4" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M 24 2 Q 30 25, 26 50" stroke="#5ba4d4" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- More tears -->
+    <path d="M -20 8 Q -24 30, -20 48" stroke="#5ba4d4" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 20 8 Q 24 30, 20 48" stroke="#5ba4d4" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
   </g>
-  <text x="600" y="340" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ef4444">EXIT LIQUIDITY</text>
-  <text x="600" y="365" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#888">"Why is it dumping?"</text>
+  <!-- Label -->
+  <text x="600" y="310" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">EXIT LIQUIDITY</text>
+  <text x="600" y="333" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666" font-style="italic">"why is it dumping??"</text>
 
-  <!-- RIGHT WOJAK - Clown (NGMI) -->
-  <g transform="translate(1080, 340)">
+  <!-- RIGHT - CLOWN WOJAK (NGMI) -->
+  <g transform="translate(1040, 360)">
     <!-- Head -->
-    <ellipse cx="0" cy="0" rx="55" ry="60" fill="#f5deb3"/>
-    <!-- Clown hair - rainbow puffs -->
-    <circle cx="-45" cy="-35" r="18" fill="#ef4444"/>
-    <circle cx="-25" cy="-50" r="16" fill="#fbbf24"/>
-    <circle cx="0" cy="-55" r="18" fill="#22c55e"/>
-    <circle cx="25" cy="-50" r="16" fill="#3b82f6"/>
-    <circle cx="45" cy="-35" r="18" fill="#a855f7"/>
-    <!-- Eyes - derpy/happy -->
-    <ellipse cx="-18" cy="-5" rx="10" ry="10" fill="white"/>
-    <ellipse cx="18" cy="-5" rx="10" ry="10" fill="white"/>
-    <ellipse cx="-15" cy="-3" rx="5" ry="5" fill="#0a0a0a"/>
-    <ellipse cx="21" cy="-3" rx="5" ry="5" fill="#0a0a0a"/>
-    <!-- Clown nose -->
-    <circle cx="0" cy="8" r="14" fill="#ef4444"/>
-    <!-- Big smile -->
-    <path d="M -25 22 Q 0 45 25 22" stroke="#0a0a0a" stroke-width="3" fill="none"/>
-    <!-- Rosy cheeks -->
-    <ellipse cx="-32" cy="12" rx="10" ry="8" fill="#ff6b6b" opacity="0.5"/>
-    <ellipse cx="32" cy="12" rx="10" ry="8" fill="#ff6b6b" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="52" ry="58" fill="#f0e0c0" stroke="#000" stroke-width="2.5"/>
+    <!-- Rainbow clown wig -->
+    <ellipse cx="-42" cy="-28" rx="20" ry="18" fill="#ff4444"/>
+    <ellipse cx="-20" cy="-45" rx="18" ry="16" fill="#ff9922"/>
+    <ellipse cx="5" cy="-52" rx="20" ry="17" fill="#44dd44"/>
+    <ellipse cx="30" cy="-42" rx="18" ry="16" fill="#4488ff"/>
+    <ellipse cx="48" cy="-24" rx="18" ry="17" fill="#aa44ff"/>
+    <!-- Derpy eyes - looking different directions -->
+    <ellipse cx="-16" cy="-6" rx="12" ry="12" fill="white" stroke="#000" stroke-width="2"/>
+    <ellipse cx="18" cy="-6" rx="12" ry="12" fill="white" stroke="#000" stroke-width="2"/>
+    <!-- Derpy pupils -->
+    <circle cx="-20" cy="-4" r="5" fill="#000"/>
+    <circle cx="22" cy="-8" r="5" fill="#000"/>
+    <!-- Eyebrows - clueless -->
+    <path d="M -30 -22 Q -16 -20, -5 -22" stroke="#000" stroke-width="2" fill="none"/>
+    <path d="M 5 -22 Q 18 -20, 32 -22" stroke="#000" stroke-width="2" fill="none"/>
+    <!-- Big red clown nose -->
+    <circle cx="0" cy="8" r="14" fill="#ff2222" stroke="#000" stroke-width="2"/>
+    <!-- Big dumb smile -->
+    <path d="M -22 22 Q 0 42, 22 22" stroke="#000" stroke-width="3" fill="none"/>
+    <!-- Blush circles -->
+    <ellipse cx="-32" cy="12" rx="10" ry="7" fill="#ffaaaa" opacity="0.6"/>
+    <ellipse cx="32" cy="12" rx="10" ry="7" fill="#ffaaaa" opacity="0.6"/>
   </g>
-  <text x="1080" y="440" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#ef4444">NGMI</text>
-  <text x="1080" y="465" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#888">"It's going back up"</text>
+  <!-- Label -->
+  <text x="1040" y="455" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">NGMI</text>
+  <text x="1040" y="478" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666" font-style="italic">"it's going back up"</text>
 
-  <!-- YOU marker -->
-  <g transform="translate(220, 460)">
-    <rect x="-35" y="-18" width="70" height="32" rx="16" fill="#00d395"/>
-    <text x="0" y="6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#0a0a0a">YOU?</text>
-    <polygon points="0,14 -10,28 10,28" fill="#00d395"/>
+  <!-- YOU marker with arrow -->
+  <g transform="translate(250, 430)">
+    <rect x="-32" y="0" width="64" height="28" rx="14" fill="#00d395"/>
+    <text x="0" y="20" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="15" font-weight="bold" fill="#000">YOU?</text>
+    <polygon points="0,28 -8,42 8,42" fill="#00d395"/>
   </g>
 
-  <!-- X axis labels -->
-  <text x="100" y="560" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">Buys before</text>
-  <text x="100" y="580" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">the pump</text>
+  <!-- Bottom labels -->
+  <text x="160" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#444">Buys before pump</text>
+  <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#444">Buys the top</text>
+  <text x="1040" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#444">Buys after -90%</text>
 
-  <text x="600" y="570" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">Buys the top</text>
+  <!-- Axis line -->
+  <line x1="60" y1="485" x2="1140" y2="485" stroke="#333" stroke-width="2"/>
 
-  <text x="1100" y="560" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">Buys after</text>
-  <text x="1100" y="580" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">-90% crash</text>
+  <!-- Nansen accent -->
+  <rect x="0" y="0" width="1200" height="3" fill="#00d395"/>
+  <rect x="0" y="627" width="1200" height="3" fill="#00d395"/>
 
-  <!-- Nansen branding -->
-  <rect x="0" y="626" width="1200" height="4" fill="#00d395"/>
+  <!-- Tagline -->
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#00d395">Paste your wallet. Face the truth.</text>
+  <text x="600" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#555">ingridsia.github.io/am-i-smart-money</text>
 </svg>
