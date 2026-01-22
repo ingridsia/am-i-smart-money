@@ -223,16 +223,16 @@ function BellCurve({ position, tier }) {
           />
 
           {/* Emoji faces */}
-          <text x="60" y="145" textAnchor="middle" fontSize="40">🤓</text>
+          <text x="60" y="145" textAnchor="middle" fontSize="40">💀</text>
           <text x="250" y="90" textAnchor="middle" fontSize="36">😌</text>
-          <text x="440" y="145" textAnchor="middle" fontSize="40">💀</text>
+          <text x="440" y="145" textAnchor="middle" fontSize="40">🤓</text>
         </svg>
 
         {/* Labels below curve */}
         <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8">
-          <span className="text-sm text-gray-400 font-heading">Smart</span>
-          <span className="text-sm text-gray-400 font-heading">Average</span>
           <span className="text-sm text-gray-400 font-heading">NGMI</span>
+          <span className="text-sm text-gray-400 font-heading">Avg</span>
+          <span className="text-sm text-gray-400 font-heading">Smart Money</span>
         </div>
       </div>
     </div>
