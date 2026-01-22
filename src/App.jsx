@@ -4,14 +4,14 @@ import './index.css'
 const TIERS = {
   SMART_MONEY: {
     name: 'SMART MONEY',
-    color: '#00d395',
+    color: '#00FFA7',
     emoji: '5Head',
     description: "You don't follow alpha. You ARE the alpha. Wallets are tracking YOU, ser.",
     curvePosition: 5,
   },
   WHALE_ADJACENT: {
     name: 'WHALE ADJACENT',
-    color: '#00d395',
+    color: '#00FFA7',
     emoji: 'Galaxy Brain',
     description: "You swim with whales but you're not one yet. 73% win rate is KOL territory.",
     curvePosition: 15,
@@ -133,14 +133,14 @@ function WalletInput({ onSubmit, isLoading }) {
           placeholder="0x..."
           disabled={isLoading}
           className="w-full px-6 py-4 bg-[#111111] border-2 border-[#333] rounded-xl text-white text-lg font-mono
-                     placeholder-gray-500 focus:outline-none focus:border-[#00d395] transition-all duration-300
+                     placeholder-gray-500 focus:outline-none focus:border-[#00FFA7] transition-all duration-300
                      disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button
           type="submit"
           disabled={isLoading}
-          className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-[#00d395] hover:bg-[#00ffb3]
-                     text-black font-bold rounded-lg transition-all duration-300
+          className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-[#00FFA7] hover:bg-[#33ffbb]
+                     text-black font-bold rounded-lg transition-all duration-300 font-heading
                      disabled:opacity-50 disabled:cursor-not-allowed animate-glow"
         >
           {isLoading ? 'SCANNING...' : 'ANALYZE'}
@@ -157,69 +157,27 @@ function LoadingScreen({ message }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
       <div className="relative w-24 h-24 mb-8">
-        <div className="absolute inset-0 border-4 border-[#00d395] rounded-full animate-ping opacity-20"></div>
-        <div className="absolute inset-2 border-4 border-[#00d395] rounded-full animate-pulse"></div>
-        <div className="absolute inset-4 border-4 border-t-[#00d395] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+        <div className="absolute inset-0 border-4 border-[#00FFA7] rounded-full animate-ping opacity-20"></div>
+        <div className="absolute inset-2 border-4 border-[#00FFA7] rounded-full animate-pulse"></div>
+        <div className="absolute inset-4 border-4 border-t-[#00FFA7] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
       </div>
-      <p className="text-xl text-[#00d395] font-mono loading-dots">{message}</p>
+      <p className="text-xl text-[#00FFA7] font-mono loading-dots">{message}</p>
     </div>
   )
 }
 
 function BellCurve({ position, tier }) {
   return (
-    <div className="w-full max-w-2xl mx-auto mt-8 mb-4">
-      <div className="relative h-40">
-        {/* Bell curve SVG */}
-        <svg viewBox="0 0 400 120" className="w-full h-full" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00d395" />
-              <stop offset="15%" stopColor="#00d395" />
-              <stop offset="35%" stopColor="#fbbf24" />
-              <stop offset="50%" stopColor="#ef4444" />
-              <stop offset="65%" stopColor="#fbbf24" />
-              <stop offset="85%" stopColor="#00d395" />
-              <stop offset="100%" stopColor="#00d395" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M 0 110 Q 50 110 80 100 Q 120 85 160 40 Q 200 5 200 5 Q 200 5 240 40 Q 280 85 320 100 Q 350 110 400 110"
-            fill="none"
-            stroke="url(#curveGradient)"
-            strokeWidth="3"
-          />
-          <path
-            d="M 0 110 Q 50 110 80 100 Q 120 85 160 40 Q 200 5 200 5 Q 200 5 240 40 Q 280 85 320 100 Q 350 110 400 110 L 400 120 L 0 120 Z"
-            fill="url(#curveGradient)"
-            opacity="0.1"
-          />
-        </svg>
-
-        {/* Wojak labels */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-between px-4 text-2xl">
-          <div className="text-center" title="Smart Money">
-            <span className="text-3xl">B-)</span>
-            <p className="text-xs text-gray-400 mt-1">Smart</p>
-          </div>
-          <div className="text-center" title="Average">
-            <span className="text-3xl">:'(</span>
-            <p className="text-xs text-gray-400 mt-1">Average</p>
-          </div>
-          <div className="text-center" title="NGMI">
-            <span className="text-3xl">:o)</span>
-            <p className="text-xs text-gray-400 mt-1">NGMI</p>
-          </div>
-        </div>
-
+    <div className="w-full max-w-3xl mx-auto mt-8 mb-4">
+      <div className="relative h-64">
         {/* Animated YOU marker */}
         <div
-          className="absolute top-0 animate-marker transition-all duration-1000"
+          className="absolute top-0 z-10 animate-marker transition-all duration-1000"
           style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
         >
           <div className="flex flex-col items-center">
             <div
-              className="px-3 py-1 rounded-full text-black font-bold text-sm mb-1"
+              className="px-4 py-1.5 rounded-full text-black font-bold text-sm font-heading"
               style={{ backgroundColor: TIERS[tier].color }}
             >
               YOU
@@ -230,6 +188,52 @@ function BellCurve({ position, tier }) {
             ></div>
           </div>
         </div>
+
+        {/* Bell curve SVG */}
+        <svg viewBox="0 0 500 200" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#00FFA7" />
+              <stop offset="20%" stopColor="#00FFA7" />
+              <stop offset="35%" stopColor="#a3e635" />
+              <stop offset="45%" stopColor="#fbbf24" />
+              <stop offset="50%" stopColor="#f97316" />
+              <stop offset="55%" stopColor="#ef4444" />
+              <stop offset="65%" stopColor="#f97316" />
+              <stop offset="75%" stopColor="#fbbf24" />
+              <stop offset="85%" stopColor="#a3e635" />
+              <stop offset="100%" stopColor="#00FFA7" />
+            </linearGradient>
+          </defs>
+
+          {/* Curve fill for glow effect */}
+          <path
+            d="M 0 180 C 50 180, 100 175, 150 160 C 200 140, 220 100, 250 40 C 280 100, 300 140, 350 160 C 400 175, 450 180, 500 180 L 500 200 L 0 200 Z"
+            fill="url(#curveGradient)"
+            opacity="0.15"
+          />
+
+          {/* Main curve line */}
+          <path
+            d="M 0 180 C 50 180, 100 175, 150 160 C 200 140, 220 100, 250 40 C 280 100, 300 140, 350 160 C 400 175, 450 180, 500 180"
+            fill="none"
+            stroke="url(#curveGradient)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+
+          {/* Emoji faces */}
+          <text x="60" y="140" textAnchor="middle" fill="white" fontSize="32" fontFamily="Inter, system-ui">B-)</text>
+          <text x="250" y="85" textAnchor="middle" fill="white" fontSize="28" fontFamily="Inter, system-ui">:'(</text>
+          <text x="440" y="140" textAnchor="middle" fill="white" fontSize="32" fontFamily="Inter, system-ui">:o)</text>
+        </svg>
+
+        {/* Labels below curve */}
+        <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8">
+          <span className="text-sm text-gray-400 font-heading">Smart</span>
+          <span className="text-sm text-gray-400 font-heading">Average</span>
+          <span className="text-sm text-gray-400 font-heading">NGMI</span>
+        </div>
       </div>
     </div>
   )
@@ -237,11 +241,11 @@ function BellCurve({ position, tier }) {
 
 function StatsGrid({ stats }) {
   const statItems = [
-    { label: 'Win Rate', value: `${stats.winRate}%`, color: parseFloat(stats.winRate) > 50 ? '#00d395' : '#ef4444' },
-    { label: 'Total PnL', value: `${parseFloat(stats.pnl) >= 0 ? '+' : ''}${stats.pnl}%`, color: parseFloat(stats.pnl) >= 0 ? '#00d395' : '#ef4444' },
-    { label: 'Total Trades', value: stats.trades, color: '#00d395' },
+    { label: 'Win Rate', value: `${stats.winRate}%`, color: parseFloat(stats.winRate) > 50 ? '#00FFA7' : '#ef4444' },
+    { label: 'Total PnL', value: `${parseFloat(stats.pnl) >= 0 ? '+' : ''}${stats.pnl}%`, color: parseFloat(stats.pnl) >= 0 ? '#00FFA7' : '#ef4444' },
+    { label: 'Total Trades', value: stats.trades, color: '#00FFA7' },
     { label: 'Avg Hold Time', value: stats.avgHoldTime, color: '#fbbf24' },
-    { label: 'Best Trade', value: stats.bestTrade, color: '#00d395' },
+    { label: 'Best Trade', value: stats.bestTrade, color: '#00FFA7' },
     { label: 'Worst Trade', value: stats.worstTrade, color: '#ef4444' },
     { label: 'Rugs Survived', value: stats.rugsSurvived, color: stats.rugsSurvived > 10 ? '#ef4444' : '#fbbf24' },
   ]
@@ -276,7 +280,7 @@ function EmailGate({ onSubmit, onSkip }) {
 
   return (
     <div className="bg-[#111111] border border-[#333] rounded-xl p-6 mt-8 animate-fade-in">
-      <h3 className="text-xl font-bold text-[#00d395] mb-2">Want the full report?</h3>
+      <h3 className="text-xl font-bold text-[#00FFA7] mb-2 font-heading">Want the full report?</h3>
       <p className="text-gray-400 mb-4">
         Get detailed analysis including your top tokens, best entry/exit times, and personalized tips.
       </p>
@@ -287,11 +291,11 @@ function EmailGate({ onSubmit, onSkip }) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           className="flex-1 px-4 py-2 bg-[#0a0a0a] border border-[#333] rounded-lg text-white
-                     placeholder-gray-500 focus:outline-none focus:border-[#00d395]"
+                     placeholder-gray-500 focus:outline-none focus:border-[#00FFA7]"
         />
         <button
           type="submit"
-          className="px-6 py-2 bg-[#00d395] hover:bg-[#00ffb3] text-black font-bold rounded-lg transition-all"
+          className="px-6 py-2 bg-[#00FFA7] hover:bg-[#00ffb3] text-black font-bold rounded-lg transition-all"
         >
           GET REPORT
         </button>
@@ -330,7 +334,7 @@ function ShareButton({ tier, wallet, stats }) {
   return (
     <button
       onClick={handleShare}
-      className="flex items-center gap-2 px-6 py-3 bg-black border-2 border-[#333] hover:border-[#00d395]
+      className="flex items-center gap-2 px-6 py-3 bg-black border-2 border-[#333] hover:border-[#00FFA7]
                  rounded-xl font-bold transition-all duration-300 mt-6"
     >
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -350,7 +354,7 @@ function Results({ tier, stats, wallet, onReset }) {
       {/* Tier Badge */}
       <div className="text-center mb-8">
         <div
-          className="inline-block px-6 py-2 rounded-full text-2xl font-bold mb-4 animate-glow"
+          className="inline-block px-6 py-2 rounded-full text-2xl font-bold mb-4 animate-glow font-heading"
           style={{ backgroundColor: tierData.color, color: '#0a0a0a' }}
         >
           {tierData.name}
@@ -382,7 +386,7 @@ function Results({ tier, stats, wallet, onReset }) {
         <ShareButton tier={tier} wallet={wallet} stats={stats} />
         <button
           onClick={onReset}
-          className="px-6 py-3 bg-[#111111] border-2 border-[#333] hover:border-[#00d395]
+          className="px-6 py-3 bg-[#111111] border-2 border-[#333] hover:border-[#00FFA7]
                      rounded-xl font-bold transition-all duration-300"
         >
           Try Another Wallet
@@ -436,8 +440,8 @@ function App() {
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Am I <span className="text-[#00d395]">Smart Money</span>? 🤓
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 font-heading">
+            Am I <span className="text-[#00FFA7]">Smart Money</span>? 🤓
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             {state === 'input' && "Paste your wallet address and find out if you're the alpha or the exit liquidity."}
@@ -470,7 +474,7 @@ function App() {
         <footer className="text-center mt-16 text-gray-500 text-sm">
           <p>This is satire. Not financial advice. DYOR. NFA. Probably nothing.</p>
           <p className="mt-2">
-            Built with degen energy | <span className="text-[#00d395]">Nansen</span> vibes
+            Built with degen energy | <span className="text-[#00FFA7]">Nansen</span> vibes
           </p>
         </footer>
       </div>

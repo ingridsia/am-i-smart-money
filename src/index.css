@@ -3,7 +3,7 @@
 @theme {
   --color-nansen-black: #0a0a0a;
   --color-nansen-dark: #111111;
-  --color-nansen-green: #00d395;
+  --color-nansen-green: #00FFA7;
   --color-nansen-green-dark: #00a876;
   --color-nansen-green-light: #00ffb3;
 }
@@ -19,6 +19,18 @@ body {
   color: white;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 #root {
@@ -78,13 +90,13 @@ body {
 /* Bell curve gradient */
 .bell-curve-gradient {
   background: linear-gradient(90deg,
-    #00d395 0%,
-    #00d395 15%,
+    #00FFA7 0%,
+    #00FFA7 15%,
     #fbbf24 35%,
     #ef4444 50%,
     #fbbf24 65%,
-    #00d395 85%,
-    #00d395 100%
+    #00FFA7 85%,
+    #00FFA7 100%
   );
 }
 
@@ -98,7 +110,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00d395;
+  background: #00FFA7;
   border-radius: 4px;
 }
 
