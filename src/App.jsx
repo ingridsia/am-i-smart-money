@@ -324,10 +324,14 @@ function ShareButton({ tier, wallet, stats }) {
     const emoji = tierEmojis[tier] || '👀'
     const pnlEmoji = parseFloat(stats.pnl) >= 0 ? '📈' : '📉'
 
+    // Create shareable URL with result parameter for dynamic OG image
+    const baseUrl = window.location.origin
+    const shareUrl = `${baseUrl}/?result=${tier.toLowerCase()}`
+
     const tweetText = encodeURIComponent(
       `${emoji} I'm ${tierData.name}\n\n${tierData.description}\n\n${pnlEmoji} PnL: ${parseFloat(stats.pnl) >= 0 ? '+' : ''}${stats.pnl}%\n🎯 Win Rate: ${stats.winRate}%\n💀 Rugs Survived: ${stats.rugsSurvived}\n\nAre you smart money or exit liquidity?`
     )
-    const url = encodeURIComponent('https://ingridsia.github.io/am-i-smart-money/')
+    const url = encodeURIComponent(shareUrl)
     window.open(`https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`, '_blank')
   }
 
@@ -402,6 +406,19 @@ function App() {
   const [loadingMessage, setLoadingMessage] = useState(LOADING_MESSAGES[0])
   const [result, setResult] = useState(null)
 
+  // Check for result in URL params on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const resultParam = params.get('result')?.toUpperCase()
+
+    if (resultParam && TIERS[resultParam]) {
+      const stats = generateMockStats(resultParam)
+      setResult({ tier: resultParam, stats })
+      setWallet('0x' + '0'.repeat(40)) // Placeholder wallet
+      setState('results')
+    }
+  }, [])
+
   useEffect(() => {
     if (state !== 'loading') return
 
@@ -433,6 +450,8 @@ function App() {
     setState('input')
     setWallet('')
     setResult(null)
+    // Clear URL params
+    window.history.replaceState({}, '', window.location.pathname)
   }
 
   return (
