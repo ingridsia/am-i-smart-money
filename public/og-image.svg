@@ -1,53 +1,78 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0a0a0a"/>
-
-  <!-- Gradient glow effect -->
-  <ellipse cx="600" cy="315" rx="400" ry="200" fill="url(#glow)" opacity="0.3"/>
-
-  <!-- Bell curve -->
-  <path d="M 100 480 Q 200 480 280 460 Q 400 420 500 320 Q 600 180 600 180 Q 600 180 700 320 Q 800 420 920 460 Q 1000 480 1100 480"
-        stroke="url(#curveGradient)" stroke-width="6" fill="none"/>
-
-  <!-- Title -->
-  <text x="600" y="120" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="white">
-    Am I <tspan fill="#00d395">Smart Money</tspan>?
-  </text>
-
-  <!-- Subtitle -->
-  <text x="600" y="180" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#888888">
-    Find out if you're the alpha or the exit liquidity
-  </text>
-
-  <!-- Wojak faces -->
-  <text x="150" y="540" text-anchor="middle" font-size="48">B-)</text>
-  <text x="150" y="580" text-anchor="middle" font-family="system-ui" font-size="18" fill="#00d395">SMART</text>
-
-  <text x="600" y="540" text-anchor="middle" font-size="48">:'(</text>
-  <text x="600" y="580" text-anchor="middle" font-family="system-ui" font-size="18" fill="#ef4444">AVERAGE</text>
-
-  <text x="1050" y="540" text-anchor="middle" font-size="48">:o)</text>
-  <text x="1050" y="580" text-anchor="middle" font-family="system-ui" font-size="18" fill="#ef4444">NGMI</text>
-
-  <!-- YOU marker -->
-  <rect x="260" y="350" width="80" height="36" rx="18" fill="#00d395"/>
-  <text x="300" y="375" text-anchor="middle" font-family="system-ui" font-size="20" font-weight="bold" fill="#0a0a0a">YOU?</text>
-  <polygon points="300,386 290,400 310,400" fill="#00d395"/>
-
-  <!-- Definitions -->
   <defs>
     <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#00d395"/>
-      <stop offset="15%" stop-color="#00d395"/>
-      <stop offset="35%" stop-color="#fbbf24"/>
+      <stop offset="20%" stop-color="#00d395"/>
+      <stop offset="40%" stop-color="#fbbf24"/>
       <stop offset="50%" stop-color="#ef4444"/>
-      <stop offset="65%" stop-color="#fbbf24"/>
-      <stop offset="85%" stop-color="#00d395"/>
+      <stop offset="60%" stop-color="#fbbf24"/>
+      <stop offset="80%" stop-color="#00d395"/>
       <stop offset="100%" stop-color="#00d395"/>
     </linearGradient>
-    <radialGradient id="glow">
-      <stop offset="0%" stop-color="#00d395"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Glow effect behind curve -->
+  <ellipse cx="600" cy="420" rx="500" ry="150" fill="#00d395" opacity="0.08"/>
+
+  <!-- Title -->
+  <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white">
+    Am I Smart Money?
+  </text>
+
+  <!-- Green accent underline -->
+  <rect x="400" y="160" width="400" height="4" rx="2" fill="#00d395"/>
+
+  <!-- Tagline -->
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#888888">
+    Paste your wallet. Face the truth. Share your L's.
+  </text>
+
+  <!-- Bell curve - larger and more prominent -->
+  <path d="M 100 520 Q 180 520 250 505 Q 350 480 450 400 Q 550 280 600 250 Q 650 280 750 400 Q 850 480 950 505 Q 1020 520 1100 520"
+        stroke="url(#curveGradient)" stroke-width="8" fill="none" filter="url(#glow)"/>
+
+  <!-- Curve fill -->
+  <path d="M 100 520 Q 180 520 250 505 Q 350 480 450 400 Q 550 280 600 250 Q 650 280 750 400 Q 850 480 950 505 Q 1020 520 1100 520 L 1100 580 L 100 580 Z"
+        fill="url(#curveGradient)" opacity="0.15"/>
+
+  <!-- YOU marker with glow -->
+  <g filter="url(#glow)">
+    <rect x="195" y="380" width="70" height="32" rx="16" fill="#00d395"/>
+    <text x="230" y="403" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0a0a0a">YOU</text>
+  </g>
+  <!-- Marker arrow -->
+  <polygon points="230,412 220,428 240,428" fill="#00d395"/>
+
+  <!-- Wojak section labels -->
+  <text x="180" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="white">B-)</text>
+  <text x="180" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d395">SMART MONEY</text>
+
+  <text x="600" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="white">:'(</text>
+  <text x="600" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">EXIT LIQUIDITY</text>
+
+  <text x="1020" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="white">:o)</text>
+  <text x="1020" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">NGMI</text>
+
+  <!-- Nansen-style branding corner -->
+  <rect x="0" y="0" width="6" height="630" fill="#00d395"/>
 </svg>

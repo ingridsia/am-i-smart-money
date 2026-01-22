@@ -306,13 +306,24 @@ function EmailGate({ onSubmit, onSkip }) {
   )
 }
 
-function ShareButton({ tier, wallet }) {
+function ShareButton({ tier, wallet, stats }) {
   const handleShare = () => {
     const tierData = TIERS[tier]
+    const tierEmojis = {
+      SMART_MONEY: '🧠💰',
+      WHALE_ADJACENT: '🐋✨',
+      DEGEN: '🎰🔥',
+      TOURIST: '📸🗺️',
+      EXIT_LIQUIDITY: '🚪💸',
+      NGMI: '🤡📉',
+    }
+    const emoji = tierEmojis[tier] || '👀'
+    const pnlEmoji = parseFloat(stats.pnl) >= 0 ? '📈' : '📉'
+
     const tweetText = encodeURIComponent(
-      `I'm ${tierData.name} according to the "Am I Smart Money?" analyzer\n\n${tierData.description}\n\nCheck your wallet:`
+      `${emoji} I'm ${tierData.name}\n\n${tierData.description}\n\n${pnlEmoji} PnL: ${parseFloat(stats.pnl) >= 0 ? '+' : ''}${stats.pnl}%\n🎯 Win Rate: ${stats.winRate}%\n💀 Rugs Survived: ${stats.rugsSurvived}\n\nAre you smart money or exit liquidity?`
     )
-    const url = encodeURIComponent(window.location.href)
+    const url = encodeURIComponent('https://ingridsia.github.io/am-i-smart-money/')
     window.open(`https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`, '_blank')
   }
 
@@ -368,7 +379,7 @@ function Results({ tier, stats, wallet, onReset }) {
 
       {/* Actions */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-        <ShareButton tier={tier} wallet={wallet} />
+        <ShareButton tier={tier} wallet={wallet} stats={stats} />
         <button
           onClick={onReset}
           className="px-6 py-3 bg-[#111111] border-2 border-[#333] hover:border-[#00d395]
