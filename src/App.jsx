@@ -223,9 +223,9 @@ function BellCurve({ position, tier }) {
           />
 
           {/* Emoji faces */}
-          <text x="60" y="140" textAnchor="middle" fill="white" fontSize="32" fontFamily="Inter, system-ui">B-)</text>
-          <text x="250" y="85" textAnchor="middle" fill="white" fontSize="28" fontFamily="Inter, system-ui">:'(</text>
-          <text x="440" y="140" textAnchor="middle" fill="white" fontSize="32" fontFamily="Inter, system-ui">:o)</text>
+          <text x="60" y="145" textAnchor="middle" fontSize="40">🤓</text>
+          <text x="250" y="90" textAnchor="middle" fontSize="36">😌</text>
+          <text x="440" y="145" textAnchor="middle" fontSize="40">💀</text>
         </svg>
 
         {/* Labels below curve */}
