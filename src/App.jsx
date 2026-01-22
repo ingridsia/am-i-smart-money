@@ -156,11 +156,11 @@ function WalletInput({ onSubmit, isLoading }) {
 function LoadingScreen({ message }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
-      <div className="relative w-24 h-24 mb-8">
-        <div className="absolute inset-0 border-4 border-[#00FFA7] rounded-full animate-ping opacity-20"></div>
-        <div className="absolute inset-2 border-4 border-[#00FFA7] rounded-full animate-pulse"></div>
-        <div className="absolute inset-4 border-4 border-t-[#00FFA7] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-      </div>
+      <img
+        src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExemlmdnVncWFhb3Q0Y2JrNjI0dWRmYmkwMXJmdTlkeXpqNzZoeXU2MCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TALQlzlQssoEvvUuNq/giphy.webp"
+        alt="Loading..."
+        className="w-32 h-32 mb-8"
+      />
       <p className="text-xl text-[#00FFA7] font-mono loading-dots">{message}</p>
     </div>
   )
