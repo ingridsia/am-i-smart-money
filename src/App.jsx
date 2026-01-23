@@ -337,8 +337,8 @@ function ShareButton({ tier, wallet, stats }) {
   return (
     <button
       onClick={handleShare}
-      className="flex items-center gap-2 px-6 py-3 bg-black border-2 border-[#333] hover:border-[#00FFA7]
-                 rounded-xl font-bold transition-all duration-300 mt-6"
+      className="flex items-center gap-2 px-6 py-3 bg-[#00FFA7] hover:bg-[#33ffbb]
+                 rounded-xl font-bold text-black transition-all duration-300 mt-6 font-heading"
     >
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
