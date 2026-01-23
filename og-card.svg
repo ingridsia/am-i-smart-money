@@ -1,0 +1,146 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a0a2e"/>
+      <stop offset="50%" stop-color="#0f0a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+
+    <!-- Card glow gradient -->
+    <linearGradient id="cardGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFA7"/>
+      <stop offset="25%" stop-color="#00FFA7"/>
+      <stop offset="50%" stop-color="#7fff00"/>
+      <stop offset="75%" stop-color="#00FFA7"/>
+      <stop offset="100%" stop-color="#00FFA7"/>
+    </linearGradient>
+
+    <!-- Card inner gradient -->
+    <linearGradient id="cardInner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0a0a15"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Outer glow filter for card -->
+    <filter id="outerGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feFlood flood-color="#00FFA7" flood-opacity="0.6"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Sparkle gradient -->
+    <radialGradient id="sparkle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#00FFA7"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Background stars/dots -->
+  <circle cx="100" cy="100" r="2" fill="#00FFA7" opacity="0.5"/>
+  <circle cx="200" cy="50" r="1.5" fill="#ffffff" opacity="0.4"/>
+  <circle cx="1050" cy="150" r="2" fill="#00FFA7" opacity="0.6"/>
+  <circle cx="1100" cy="80" r="1.5" fill="#ffffff" opacity="0.3"/>
+  <circle cx="150" cy="500" r="2" fill="#00FFA7" opacity="0.5"/>
+  <circle cx="1000" cy="550" r="1.5" fill="#ffffff" opacity="0.4"/>
+  <circle cx="80" cy="300" r="1" fill="#ffffff" opacity="0.5"/>
+  <circle cx="1120" cy="400" r="1" fill="#00FFA7" opacity="0.4"/>
+
+  <!-- Sparkle decorations -->
+  <!-- Top left sparkle -->
+  <g transform="translate(120, 180)">
+    <path d="M0,-20 L3,-3 L20,0 L3,3 L0,20 L-3,3 L-20,0 L-3,-3 Z" fill="#00FFA7" opacity="0.8"/>
+  </g>
+
+  <!-- Top right sparkle -->
+  <g transform="translate(1080, 200)">
+    <path d="M0,-25 L4,-4 L25,0 L4,4 L0,25 L-4,4 L-25,0 L-4,-4 Z" fill="#00FFA7" opacity="0.9"/>
+  </g>
+
+  <!-- Bottom left sparkle -->
+  <g transform="translate(150, 480)">
+    <path d="M0,-18 L3,-3 L18,0 L3,3 L0,18 L-3,3 L-18,0 L-3,-3 Z" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+  <!-- Bottom right sparkle -->
+  <g transform="translate(1050, 450)">
+    <path d="M0,-22 L3,-3 L22,0 L3,3 L0,22 L-3,3 L-22,0 L-3,-3 Z" fill="#00FFA7" opacity="0.8"/>
+  </g>
+
+  <!-- Small diamond sparkles -->
+  <g transform="translate(200, 350) rotate(45)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#00FFA7" opacity="0.4"/>
+  </g>
+  <g transform="translate(1000, 300) rotate(45)">
+    <rect x="-10" y="-10" width="20" height="20" fill="#00FFA7" opacity="0.5"/>
+  </g>
+
+  <!-- Card outer glow -->
+  <rect x="400" y="80" width="400" height="470" rx="20" fill="#00FFA7" opacity="0.3" filter="url(#outerGlow)"/>
+
+  <!-- Card border/glow frame -->
+  <rect x="405" y="85" width="390" height="460" rx="18" fill="url(#cardGlow)" filter="url(#glow)"/>
+
+  <!-- Card inner background -->
+  <rect x="415" y="95" width="370" height="440" rx="14" fill="url(#cardInner)"/>
+
+  <!-- Card header area -->
+  <rect x="430" y="110" width="340" height="50" rx="8" fill="#0a0a15" stroke="#333" stroke-width="1"/>
+
+  <!-- Header text -->
+  <text x="450" y="143" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">SMART MONEY</text>
+
+  <!-- Tier indicators -->
+  <circle cx="730" cy="135" r="15" fill="#00FFA7"/>
+  <text x="730" y="141" font-family="Arial" font-size="16" fill="#0a0a0a" text-anchor="middle">$</text>
+
+  <!-- Main emoji/character area -->
+  <rect x="430" y="175" width="340" height="200" rx="8" fill="#111827"/>
+
+  <!-- Large emoji -->
+  <text x="600" y="310" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="120" text-anchor="middle">🤓</text>
+
+  <!-- Stats/description area -->
+  <rect x="430" y="390" width="340" height="130" rx="8" fill="#0a0a15" stroke="#333" stroke-width="1"/>
+
+  <!-- Description title -->
+  <text x="450" y="420" font-family="Space Grotesk, Arial, sans-serif" font-size="18" font-weight="600" fill="#00FFA7">Am I Smart Money?</text>
+
+  <!-- Description text -->
+  <text x="450" y="450" font-family="Inter, Arial, sans-serif" font-size="14" fill="#9ca3af">Find out if you're the alpha</text>
+  <text x="450" y="472" font-family="Inter, Arial, sans-serif" font-size="14" fill="#9ca3af">or the exit liquidity.</text>
+
+  <!-- Stats row -->
+  <text x="450" y="505" font-family="Inter, Arial, sans-serif" font-size="12" fill="#6b7280">Win Rate</text>
+  <text x="520" y="505" font-family="Space Grotesk, Arial, sans-serif" font-size="12" font-weight="600" fill="#00FFA7">??%</text>
+
+  <text x="580" y="505" font-family="Inter, Arial, sans-serif" font-size="12" fill="#6b7280">PnL</text>
+  <text x="610" y="505" font-family="Space Grotesk, Arial, sans-serif" font-size="12" font-weight="600" fill="#00FFA7">???%</text>
+
+  <text x="680" y="505" font-family="Inter, Arial, sans-serif" font-size="12" fill="#6b7280">Rugs</text>
+  <text x="720" y="505" font-family="Space Grotesk, Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444">??</text>
+
+  <!-- Bottom branding -->
+  <text x="600" y="590" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle">AM I SMART MONEY?</text>
+  <text x="600" y="615" font-family="Inter, Arial, sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">Paste your wallet. Face the truth. Share your L's.</text>
+
+  <!-- Nansen branding corner -->
+  <text x="1150" y="610" font-family="Inter, Arial, sans-serif" font-size="12" fill="#00FFA7" text-anchor="end">Powered by Nansen vibes</text>
+</svg>
