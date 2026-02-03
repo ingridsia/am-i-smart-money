@@ -97,6 +97,47 @@ const getRandomTier = () => {
   return tiers[tiers.length - 1]
 }
 
+// API call to get real Nansen data
+const analyzeWallet = async (address) => {
+  try {
+    // Use relative URL - works on same domain (Cloudflare Pages)
+    const response = await fetch('/api/wallet', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ address }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`)
+    }
+
+    const data = await response.json()
+
+    if (data.success) {
+      return {
+        tier: data.tier,
+        stats: data.stats,
+        labels: data.labels,
+        isRealData: true,
+      }
+    } else {
+      throw new Error(data.error || 'Unknown error')
+    }
+  } catch (error) {
+    console.error('API Error, falling back to mock data:', error)
+    // Fallback to mock data if API fails
+    const tier = getRandomTier()
+    return {
+      tier,
+      stats: generateMockStats(tier),
+      labels: [],
+      isRealData: false,
+    }
+  }
+}
+
 function WalletInput({ onSubmit, isLoading }) {
   const [wallet, setWallet] = useState('')
   const [error, setError] = useState('')
@@ -337,8 +378,8 @@ function ShareButton({ tier, wallet, stats }) {
   return (
     <button
       onClick={handleShare}
-      className="flex items-center gap-2 px-6 py-3 bg-[#00FFA7] hover:bg-[#33ffbb]
-                 rounded-xl font-bold text-black transition-all duration-300 mt-6 font-heading"
+      className="flex items-center justify-center gap-3 w-full sm:w-auto sm:min-w-[280px] px-8 py-4 bg-[#00FFA7] hover:bg-[#33ffbb]
+                 rounded-full font-bold text-black transition-all duration-300 mt-6 font-heading text-lg"
     >
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -404,6 +445,7 @@ function App() {
   const [wallet, setWallet] = useState('')
   const [loadingMessage, setLoadingMessage] = useState(LOADING_MESSAGES[0])
   const [result, setResult] = useState(null)
+  const [isRealData, setIsRealData] = useState(false)
 
   useEffect(() => {
     if (state !== 'loading') return
@@ -414,18 +456,27 @@ function App() {
       setLoadingMessage(LOADING_MESSAGES[messageIndex])
     }, 800)
 
-    const timeout = setTimeout(() => {
-      const tier = getRandomTier()
-      const stats = generateMockStats(tier)
-      setResult({ tier, stats })
+    // Call the real API
+    const fetchData = async () => {
+      // Minimum loading time for UX
+      const minLoadTime = new Promise(resolve => setTimeout(resolve, 3000))
+
+      const [apiResult] = await Promise.all([
+        analyzeWallet(wallet),
+        minLoadTime
+      ])
+
+      setResult({ tier: apiResult.tier, stats: apiResult.stats })
+      setIsRealData(apiResult.isRealData)
       setState('results')
-    }, 4000 + Math.random() * 2000)
+    }
+
+    fetchData()
 
     return () => {
       clearInterval(interval)
-      clearTimeout(timeout)
     }
-  }, [state])
+  }, [state, wallet])
 
   const handleSubmit = (address) => {
     setWallet(address)
@@ -477,7 +528,11 @@ function App() {
         <footer className="text-center mt-16 text-gray-500 text-sm">
           <p>This is satire. Not financial advice. DYOR. NFA. Probably nothing.</p>
           <p className="mt-2">
-            Built with degen energy | <span className="text-[#00FFA7]">Nansen</span> vibes
+            {isRealData ? (
+              <>Powered by <span className="text-[#00FFA7]">Nansen</span> data</>
+            ) : (
+              <>Built with degen energy | <span className="text-[#00FFA7]">Nansen</span> vibes</>
+            )}
           </p>
         </footer>
       </div>
